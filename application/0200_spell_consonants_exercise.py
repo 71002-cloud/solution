@@ -23,12 +23,12 @@ def spell_consonants(text, letter_limit):
     Spells/prints the first letter_limit letters of text.
     Prints only consonants and spaces (a, e, i, o, u, y do not get printed). """
 
-    count = 0
+    count = 1
 
     for letter in text:
         if not(letter in ["a", "e", "i", "o", "u", "y"]):
             print(letter, end="")
-            count += 1
+        count += 1
         if count > letter_limit:
             break
     print()
