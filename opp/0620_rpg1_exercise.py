@@ -40,11 +40,6 @@ from argparse import Action
 
 
 class Character:
-
-    name = ""
-    max_health = 0
-    _current_health = 0
-
     def __init__(self, name, max_health, attackpower):
         self.name = name
         self.max_health = max_health
