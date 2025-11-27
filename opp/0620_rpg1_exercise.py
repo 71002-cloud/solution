@@ -108,7 +108,7 @@ while not winner:
 
     if hero2._current_health <= 0:
         winner = "Team 1"
-    elif hero2._current_health < hero2.max_health and random.uniform(1, 4) == 3 and healer2._current_health > 0:
+    elif hero2._current_health < hero2.max_health and random.randint(1, 4) == 3 and healer2._current_health > 0:
         healer2.heal(hero2)
     else:
         hero2.hit(random.choice([hero1, healer1]))

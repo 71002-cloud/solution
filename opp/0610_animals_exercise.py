@@ -24,9 +24,6 @@ class Dog(Animal):
     def __repr__(self):
         return f"Dog: {self.name}, {self.sound}, {self.height} cm, {self.weight} kg, {self.legs}, {self.female}, {self.huntssheeps}, {self.taillenght} cm"
 
-    def make_noise(self):
-        print(self.sound)
-
     def wag_tail(self):
         print (f"Hunden {self.name} vifter med sin {self.taillenght} cm lange hale")
 
