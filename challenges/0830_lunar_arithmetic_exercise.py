@@ -77,23 +77,36 @@ class Lunar_int():
             total += Lunar_int(interm)
         return total
 
+
+def lunar_mul(a, b):
+    a = Lunar_int(a)
+    b = Lunar_int(b)
+    result = a * b
+    return result
+
 def lunar_primes(n):
     prime_list = []
+    result_list = []
     start = 19
+    for i in range(1, 999):
+        if i == 9:
+            continue
+        else:
+            for o in range(1, 999):
+                if o == 9:
+                    continue
+                result = lunar_mul(i, o)
+                result_list.append(result)
     while len(prime_list) < n:
         a = Lunar_int(start)
-        b = Lunar_int(9)
-        c = Lunar_int(8)
-        d = Lunar_int(7)
-
-        if a * b == a and a * c != a and a * d != a:
-            prime_list.append([a])
-
+        if '9' in str(a) and not a in result_list and not a == 9:
+            prime_list.append(a)
         start += 1
-    prime_str = ' '.join(str(a[0]) for a in prime_list)
+
+    prime_str = ' '.join(str(a) for a in prime_list)
     return prime_str
 
-print(lunar_primes(21))
+print(lunar_primes(99))
 
 
 a = Lunar_int(19)
