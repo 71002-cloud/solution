@@ -37,24 +37,23 @@ Hvis du går i stå, så spørg google, de andre elever, en AI eller læreren.
 
 Når dit program er færdigt, skal du skubbe det til dit github-repository.
 """
+def prime_pyramid(rows):
 
+    pyramid = [[1, 1]]
 
-def pyramid(lines):
+    for n in range(2, rows + 1):
+        prev_row = pyramid[-1]
+        new_row = []
+        for i in range(len(prev_row) - 1):
+            a, b = prev_row[i], prev_row[i + 1]
+            new_row.append(a)
+            if a + b == n:
+                new_row.append(n)
+        new_row.append(prev_row[-1])
+        pyramid.append(new_row)
 
-    last_row = [1] + list(range(lines, 1, -1)) + list(range(2, lines + 1)) + [1]
-    width = len(' '.join(map(str, last_row)))
+    width = len(' '.join(map(str, pyramid[-1])))
+    for row in pyramid:
+        print(' '.join(map(str, row)).center(width))
 
-    for n in range(1, lines + 1):
-        if n == 1:
-            row = [1, 1]
-        else:
-            descending = list(range(n, 2, -1))
-            ascending = list(reversed(descending))
-
-            row = list([1] + descending + [2] + ascending + [1])
-
-        row_str = ' '.join(map(str, row))
-        print(row_str.center(width))
-
-
-pyramid(11)
+prime_pyramid(7)
