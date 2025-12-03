@@ -52,3 +52,61 @@ Hvis du går i stå, så spørg google, de andre elever, en AI eller læreren.
 
 Når dit program er færdigt, skal du skubbe det til dit github-repository.
 """
+from operator import truediv
+from math import gcd
+
+def prime_list(n):
+    prime_array = []
+    count = 1
+
+    while len(prime_array) < n:
+        if not count % 2 == 0:
+            prime_array.append(count)
+        count += 1
+    return prime_array
+
+def prime_factorization(number):
+    factors = []
+    divisor = 2
+
+    while number > 1:
+        while number % divisor == 0:
+            factors.append(divisor)
+            number //= divisor
+        divisor += 1
+        if divisor * divisor > number:
+            if number > 1:
+                factors.append(number)
+                break
+    return factors
+
+def greatest_common_divisor(number1, number2):
+    while number2 != 0:
+        number1, number2 = number2, number1 % number2
+    return number1
+
+def relative_prime(number1, number2):
+    if gcd(number1, number2) == 1:
+        return True
+    else:
+        return False
+
+def yellowstone(n):
+    yellowstone_list = [1,2,3]
+    count = 4
+
+    while len(yellowstone_list) < n:
+        if gcd(count, yellowstone_list[-2]) > 1 and gcd(count, yellowstone_list[-1]) == 1 and not count in yellowstone_list:
+            yellowstone_list.append(count)
+            count = 4
+
+        count += 1
+
+    yellowstone_str = ' '.join(str(a) for a in yellowstone_list)
+    return yellowstone_str
+
+print(f"Prime list: {prime_list(20)}")
+print(f"Prime factorization: {prime_factorization(20)}")
+print(f"Gratest commen: {greatest_common_divisor(55, 10)}")
+print(f"Relative prime:  {relative_prime(4, 3)}")
+print(f"YellowStone: {yellowstone(20)}")
