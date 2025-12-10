@@ -18,7 +18,7 @@ string = ""
 def numbers(num):
     global string
     if string == "" and num == 0:
-        return
+        label_1.config(text="0")
     elif string == "" and num == ",":
         string = "0,"
         label_1.config(text=string)
@@ -55,16 +55,11 @@ def resault():
         number.append(string)
 
     line = f""
-    print(number)
-    print(ops)
-    print(count)
 
     for i in range(len(number)):
         line += number[i]
         if i < len(ops):
             line += ops[i]
-
-    print(line)
 
     try:
         line = line.replace(",", ".")
