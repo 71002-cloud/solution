@@ -43,6 +43,6 @@ def factorial(number):
     return result
 
 # Here starts the main program. From the main program you can call your functions.
-factorial_input = 5
+factorial_input = 9
 factorial_result = factorial(factorial_input)
 print(f"{factorial_input}! = {factorial_result}")

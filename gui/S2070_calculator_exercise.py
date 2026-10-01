@@ -65,6 +65,7 @@ def resault():
         line = line.replace(",", ".")
         result = eval(line)
         result = str(result)
+        number = [result]
         result = result.replace(".", ",")
         label_1.config(text=result)
     except Exception as e:
