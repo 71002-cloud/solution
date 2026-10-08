@@ -1,4 +1,5 @@
 import math
+import time
 
 class Board:
     def __init__(self, size):
@@ -134,19 +135,8 @@ class Game:
             self.knights_next_move[color] = 0
 
     def init_number_of_knights(self):
-        for i in range(self.number_of_knights):
-            if i == 0:
-                self.knight_colors.append("red")
-            elif i == 1:
-                self.knight_colors.append("black")
-            elif i == 2:
-                self.knight_colors.append("green")
-            elif i == 3:
-                self.knight_colors.append("blue")
-            else:
-                print("That is a lot of knights, I am gonna stop you here")
-                self.knight_colors.append("pink")
-                return
+        colors = ["red", "black", "green", "blue", "pink", "yellow", "purple", "orange"]
+        self.knight_colors = colors[:self.number_of_knights]
 
     def next_turn(self):
         self.turn += 1
@@ -182,15 +172,21 @@ def tjekker():
     print(list_of_mistakes)
 """
 
-if __name__ == "__main___":
-    board = Board(89) #Any odd number and it would give you the amount from 0 to the number^2 - 1
+if True:
+    start = time.perf_counter()
+    board = Board(3001) #Any odd number and it would give you the amount from 0 to the number^2 - 1
     board.board_creation()
 
     game = Game(2, board)
     while game.try_place_knight():
      pass
 
-    print(board)
-    print(game)
+    #print(board)
+    #print(game)
+    end_of_game = time.perf_counter()
 
     board.print_knight()
+    end = time.perf_counter()
+    print(f"Calc time: {end_of_game - start} secounds")
+    print(f"Print time: {end - end_of_game} secounds")
+    print(f"Total time: {end - start} secounds")
